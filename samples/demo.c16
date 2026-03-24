@@ -1,0 +1,28 @@
+// demo.c16 — Logic-C16 Showcase
+// Compile:  python c16_engine.py demo.c16
+// Run:      python c16_engine.py demo.c16 --run
+
+System.Initialize {
+
+    Vault Telemetry {
+        fixed SystemName: String = "Logic-C16 Titan Engine"
+        fixed BuildNumber = 2025
+        flow DataBuffer: Int {0..1024} = 512
+        fixed DebugMode = false
+
+        Logic Report() {
+            Signal.Presence(SystemName)
+            Signal.Presence(BuildNumber)
+            Signal.Presence(DataBuffer)
+            Signal.Presence(DebugMode)
+        }
+
+        Logic TransferOwnership() {
+            Signal.Presence(DataBuffer)
+            fixed Captured: Int = Handover DataBuffer
+            Signal.Presence(Captured)
+        }
+    }
+
+    System.Conclude
+}
