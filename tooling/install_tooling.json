@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "project": "Logic-C16",
+    "version": "2.0.0-titan",
+    "auto_command": "python c16_engine.py --install-tooling"
+  },
+  "vscode": {
+    "package_json": {
+      "name": "logic-c16-support",
+      "displayName": "Logic-C16",
+      "version": "2.0.0-titan",
+      "engines": {"vscode": "^1.60.0"},
+      "categories": ["Programming Languages"],
+      "contributes": {
+        "languages": [{"id": "c16", "aliases": ["Logic-C16"], "extensions": [".c16"], "configuration": "./language-configuration.json"}],
+        "grammars": [{"language": "c16", "scopeName": "source.c16", "path": "./syntaxes/c16.tmLanguage.json"}]
+      }
+    },
+    "language_configuration_json": {
+      "comments": {"lineComment": "//"},
+      "brackets": [["{", "}"], ["(", ")"], ["[", "]"]]
+    },
+    "c16_tmLanguage_json": {
+      "name": "Logic-C16",
+      "scopeName": "source.c16",
+      "patterns": [{"include": "#all"}],
+      "repository": {"all": {"patterns": [
+        {"name": "comment.line.c16", "match": "//.*$"},
+        {"name": "string.quoted.double.c16", "begin": "\"", "end": "\"", "patterns": [{"name": "constant.character.escape.c16", "match": "\\\\."}]},
+        {"name": "keyword.control.c16", "match": "\\b(System\\.Initialize|System\\.Conclude)\\b"},
+        {"name": "support.function.c16", "match": "\\b(Signal\\.Presence|Signal\\.Capture)\\b"},
+        {"name": "keyword.other.c16", "match": "\\b(Vault|Logic|Handover|Alignment)\\b"},
+        {"name": "storage.type.c16", "match": "\\b(fixed|flow)\\b"},
+        {"name": "support.type.c16", "match": "\\b(Int|Float|String|Bool)\\b"},
+        {"name": "constant.language.c16", "match": "\\b(true|false)\\b"},
+        {"name": "constant.numeric.c16", "match": "\\b[0-9]+(\\.[0-9]+)?\\b"},
+        {"name": "keyword.operator.range.c16", "match": "\\.\\."}
+      ]}}
+    }
+  },
+  "xcode": {
+    "install_path": "~/Library/Developer/Xcode/UserData/IDELanguageSpecifications/",
+    "filename": "Logic-C16.ideclangsyntaxp"
+  }
+}
