@@ -1,0 +1,17 @@
+// stdlib.c16 — Logic-C16 Standard Protocol Library
+// Built-in definitions. Auto-loaded by c16_engine.py.
+//
+// LIFECYCLE:     System.Initialize / System.Conclude
+// I/O:           Signal.Presence(expr) / Signal.Capture()
+// BINDINGS:      fixed name: Type = value
+//                flow name: Type {min..max} = value
+// STRUCTURE:     Vault Name { ... }
+//                Logic Name(params) { ... }
+// OWNERSHIP:     Handover <identifier>
+// TYPES:         Int (i64) | Float (double) | String (ptr) | Bool (i1)
+// CONSTRAINTS:   Type {min..max} — compile-time + runtime guard
+//
+// ERROR CODES:
+//   C16-E01 Syntax    C16-E02 Null-Exclusion
+//   C16-E04 Retired   C16-E06 Legacy ban
+//   C16-E07 Constraint  C16-C01 Sovereignty  C16-C02 Isolation
